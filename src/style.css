@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Saira+Condensed:wght@100;200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+h1,h2,h3{
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+body{
+    font-family: 'Saira Condensed', sans-serif;
+    background-color: #1E1E1E;
+    color: #fff;
+}
