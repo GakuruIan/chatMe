@@ -14,3 +14,19 @@ body{
     background-color: #1E1E1E;
     color: #fff;
 }
+
+.scrollbar::-webkit-scrollbar{
+    width: 4px;
+}
+.scrollbar::-webkit-scrollbar-track {
+    background: #393939;
+}
+
+.scrollbar::-webkit-scrollbar-thumb
+   {
+    background: rgba(255,255,255,0.3);
+  }
+  
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #393939;
+  }
