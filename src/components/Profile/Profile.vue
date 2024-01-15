@@ -1,14 +1,23 @@
 <template>
   <div class="">
-        <div class="mt-14 flex  justify-center w-full">
+
+    <ProfileLoader/>
+
+    <!-- Profile image, Name and Email -->
+    
+        <!-- <div class="mt-14 flex  justify-center w-full">
             <img v-bind:src="pic" alt="" class="h-52 w-52 object-fit rounded-full ring-2 ring-bubble ring-offset-2 ring-offset-dark-400">
         </div>
+        
         <div class="mt-6">
             <h6 class="text-4xl text-center ">Ryan</h6>
             <p class="text-base text-gray-400 text-center mt-2">Ryan@gmail.com</p>
-        </div>
+        </div> -->
 
-        <div class="flex items-center justify-center w-full gap-x-4 mt-6">
+        
+        <!-- Icons -->
+
+        <!-- <div class="flex items-center justify-center w-full gap-x-4 mt-6">
 
             <div class="flex flex-col">
                 <span class="mx-4 p-2 bg-dark-50 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-dark-200">
@@ -38,19 +47,24 @@
                 </span>
                 <p class="text-sm text-center mt-2">Delete chat</p>
             </div>
-        </div>
+        </div> -->
 
-        <div class="px-4 mt-4">
+        <!-- Shared media -->
+
+        <!-- <div class="px-4 mt-4">
             <h6 class="text-base mb-2">Shared media</h6>
 
             <div class="flex items-center">
                 <img v-bind:src="pic" alt="" class="h-24 w-20 object-fit rounded-sm">
             </div>
-        </div>
+        </div> -->
   </div>
 </template>
 
 <script setup>
 import pic from '../../assets/pic.jpg'
+
+// components
+import ProfileLoader from '../Loaders/ProfileLoader.vue'
 
 </script>

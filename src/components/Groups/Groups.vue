@@ -41,13 +41,24 @@
         <div class="overflow-y-auto h-[calc(100vh-220px)] scrollbar">
 
             <div class="mt-4 pl-1 " v-for="group in groups" :key="group">
-                <div class="flex items-center gap-x-3 my-2 py-1 w-full hover:cursor-pointer" >
-                <img v-bind:src="pic" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-[#DD9C7C] ring-offset-2 ring-offset-dark-400">
+
+                <div class="animate-pulse flex items-center gap-x-3 my-2 py-1 w-full" v-if="groups.length > 0">
+                    <div class="h-8 w-8 rounded-full bg-dark-200"></div>
+                    <div class="">
+                        <h6 class="text-base h-3 w-32 bg-dark-200"></h6>
+                        <p class="text-xs text-gray-400 h-2 w-12 bg-dark-200 mt-2"></p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-x-3 my-2 py-1 w-full hover:cursor-pointer" v-else>
+                    <img v-bind:src="pic" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-[#DD9C7C] ring-offset-2 ring-offset-dark-400">
                     <div class="">
                         <h6 class="text-base">Group name</h6>
                         <p class="text-xs text-gray-400">created by @username </p>
                     </div>
                 </div>
+
+
              </div>
         </div>
   </div>

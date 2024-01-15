@@ -24,11 +24,12 @@
 
      <!-- chat bubbles -->
      <div class="mt-20 ml-4">
+       
+
         <div class="relative overflow-y-auto h-[calc(100vh-150px)] scrollbar">
 
-              <!-- right bubble -->
+            <!-- right bubble -->
             <div class="mt-4">
-
                 <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-dark-200">
                     <div class="flex items-center space-x-2 rtl:space-x-reverse">
                         <span class="text-sm font-semibold text-white">Bonnie Green</span>
@@ -36,14 +37,11 @@
                     </div>
                     <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
                 </div>
-
-
             </div>
-              <!-- right bubble -->
+            <!-- right bubble -->
 
             <!-- left bubble -->
             <div class="flex justify-end w-full mt-4 ">
-
                 <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-s-xl rounded-ee-xl bg-bubble mr-4">
                     <div class="flex items-center space-x-2 rtl:space-x-reverse">
                         <span class="text-sm font-semibold text-white">Bonnie Green</span>
@@ -55,62 +53,59 @@
             </div>
             <!-- left bubble -->
 
-             <!-- right bubble -->
-                <div class="mt-4">
-                    <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-dark-200">
-                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span class="text-sm font-semibold text-white">Bonnie Green</span>
-                            <span class="text-sm font-normal  text-gray-400">11:46</span>
-                        </div>
-                        <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
-                        
-                    </div>
+        <!-- right bubble -->
+        <div class="mt-4">
+            <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-dark-200">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span class="text-sm font-semibold text-white">Bonnie Green</span>
+                    <span class="text-sm font-normal  text-gray-400">11:46</span>
                 </div>
-            <!-- right bubble -->
-
-            <!-- left bubble -->
-                <div class="flex justify-end w-full mt-4 ">
-
-                        <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-s-xl rounded-ee-xl bg-bubble mr-4">
-                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                <span class="text-sm font-semibold text-white">Bonnie Green</span>
-                                <span class="text-sm font-normal  text-gray-400">11:46</span>
-                            </div>
-                            <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
-                            <span class="text-sm font-normal text-gray-400">Delivered</span>
-                        </div>
-                </div>
-            <!-- left bubble -->
-
-             <!-- right bubble -->
-             <div class="mt-4">
-                    <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-dark-200">
-                        <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span class="text-sm font-semibold text-white">Bonnie Green</span>
-                            <span class="text-sm font-normal  text-gray-400">11:46</span>
-                        </div>
-                        <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
-                        
-                    </div>
-                </div>
-            <!-- right bubble -->
-
-            <!-- left bubble -->
-                <div class="flex justify-end w-full mt-4 ">
-
-                        <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-s-xl rounded-ee-xl bg-bubble mr-4">
-                            <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                                <span class="text-sm font-semibold text-white">Bonnie Green</span>
-                                <span class="text-sm font-normal  text-gray-400">11:46</span>
-                            </div>
-                            <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
-                            <span class="text-sm font-normal text-gray-400">Delivered</span>
-                        </div>
-                </div>
-            <!-- left bubble -->
-
-
+                <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p> 
+            </div>
         </div>
+        <!-- right bubble -->
+
+        <!-- left bubble -->
+        <div class="flex justify-end w-full mt-4 ">
+            <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-s-xl rounded-ee-xl bg-bubble mr-4">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span class="text-sm font-semibold text-white">Bonnie Green</span>
+                    <span class="text-sm font-normal  text-gray-400">11:46</span>
+                </div>
+                <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
+                <span class="text-sm font-normal text-gray-400">Delivered</span>
+            </div>
+        </div>
+        <!-- left bubble -->
+
+        <!-- right bubble -->
+        <div class="mt-4">
+            <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-e-xl rounded-es-xl bg-dark-200">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span class="text-sm font-semibold text-white">Bonnie Green</span>
+                    <span class="text-sm font-normal  text-gray-400">11:46</span>
+                </div>
+                <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
+                
+            </div>
+        </div>
+        <!-- right bubble -->
+
+        <!-- left bubble -->
+        <div class="flex justify-end w-full mt-4 ">
+            <div class="flex flex-col w-full max-w-[320px] leading-1.5 p-4 border-gray-200 rounded-s-xl rounded-ee-xl bg-bubble mr-4">
+                <div class="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span class="text-sm font-semibold text-white">Bonnie Green</span>
+                    <span class="text-sm font-normal  text-gray-400">11:46</span>
+                </div>
+                <p class="text-sm font-normal py-2.5  text-white">That's awesome. I think our users will really appreciate the improvements.</p>
+                <span class="text-sm font-normal text-gray-400">Delivered</span>
+            </div>
+        </div>
+        <!-- left bubble -->
+
+
+</div>
      </div>
 
      <!-- send form -->
@@ -160,4 +155,10 @@
 <script setup>
 import pic from '../../assets/pic.jpg'
 
+// components
+import ChatLoader from '../Loaders/ChatLoader.vue'
+
+
 </script>
+
+

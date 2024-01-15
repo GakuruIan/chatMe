@@ -25,12 +25,22 @@
      <!-- people -->
      <div class="overflow-y-auto h-[calc(100vh-220px)] scrollbar">
         <div class="mt-4 pl-1" v-for="person in people" :key="person">
-            <div class="flex items-center gap-x-4 my-2 py-1 w-full hover:cursor-pointer" >
-            <img v-bind:src="pic" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-bubble ring-offset-2 ring-offset-dark-400">
+
+            <div class="animate-pulse flex items-center gap-x-4 my-2 py-1 w-full hover:cursor-pointer" v-if="people.length > 10">
+                <div class="h-8 w-8 bg-dark-200 rounded-full"></div>
+
+                <div class="">
+                    <h6 class="text-base h-4 w-24 bg-dark-200"></h6>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-x-4 my-2 py-1 w-full hover:cursor-pointer" v-else>
+                <img v-bind:src="pic" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-bubble ring-offset-2 ring-offset-dark-400">
                 <div class="">
                     <h6 class="text-base">username</h6>
                 </div>
             </div>
+
         </div>
      </div>
      <!-- people -->

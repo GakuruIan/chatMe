@@ -10,6 +10,8 @@
                     <h6 class="text-base">Ryan</h6>
                 </header>
                 <div class="relative ">
+
+                  <router-view name="content"></router-view>
                     <!-- Messages component -->
                     <!-- <Messages/> -->
 
@@ -17,7 +19,7 @@
                     <!-- <People/> -->
 
                     <!-- groups component-->
-                    <Groups/>
+                    <!-- <Groups/> -->
                 </div>
             </div>
 
