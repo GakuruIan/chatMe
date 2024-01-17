@@ -14,14 +14,15 @@ import EditProfile from './components/Forms/EditProfile.vue'
 
 
 const routes = [
-    {path:'/',component:Login},
-    {path:'/register',component:Register},
+    {path:'/',component:Login,name:'login'},
+    {path:'/register',component:Register,name:'register'},
     {
-        path:'/chats',
+        path:'/main',
+        name:'chats',
         component:Chat,
         children: [
           {
-            path: '',
+            path: '/main',
             components: {
                 content:Messages
             }
@@ -45,7 +46,7 @@ const routes = [
             }
           },
           {
-            path: 'edit-profile',
+            path: 'profile',
             components: {
                 content:EditProfile
             }

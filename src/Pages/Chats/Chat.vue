@@ -6,8 +6,11 @@
             <!--Chats  -->
             <div class="min-h-screen bg-dark-500 px-2 flex-1 md:flex-none  md:w-72">
                 <header class="flex items-center gap-x-4 px-2 py-3">
-                    <img v-bind:src="pic" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-bubble ring-offset-2 ring-offset-dark-400">
-                    <h6 class="text-base">Ryan</h6>
+                     
+                  <img v-if="user?.photo" :src="user?.photo" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-bubble ring-offset-2 ring-offset-dark-400">
+                  <img v-else v-bind:src="nophoto" alt="" class="h-8 w-8 object-fit rounded-full ring-2 ring-bubble ring-offset-2 ring-offset-dark-400">
+
+                    <h6 class="text-base">{{user && user.displayName}}</h6>
                 </header>
                 <div class="relative ">
 
@@ -40,7 +43,10 @@
 </template>
 
 <script setup>
-// component
+import { onMounted, ref, watch } from "vue";
+import { useStore } from 'vuex';
+
+// components
 import Sidebar from "../../components/Sidebar/Sidebar.vue";
 import Activeusers from '../../components/Activeusers/Activeusers.vue'
 import Messages from '../../components/Messages/Messages.vue'
@@ -48,8 +54,23 @@ import People from '../../components/People/People.vue'
 import Groups from '../../components/Groups/Groups.vue'
 import ChatArea from '../../components/ChatArea/ChatArea.vue'
 import Profile from '../../components/Profile/Profile.vue'
-// image
-import pic from '../../assets/pic.jpg'
+
+// no image
+import nophoto from '../../assets/nophoto.jpeg'
+
+const store = useStore()
+
+let user = ref(null)
+
+onMounted(async()=>{
+  user.value = await store.getters.user
+  console.log(user.value)
+})
+
+watch(() => store.getters.user, (newUser, oldUser) => {
+  user.value = newUser
+})
+
 </script>
 
 <style>
