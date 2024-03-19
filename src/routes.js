@@ -10,6 +10,7 @@ import Groups from './components/Groups/Groups.vue'
 import People from './components/People/People.vue'
 import CreateGroup from './components/Forms/CreateGroup.vue'
 import EditProfile from './components/Forms/EditProfile.vue'
+import MyGroups from './components/Groups/Mygroups.vue'
 
 
 
@@ -31,6 +32,12 @@ const routes = [
             path: 'groups',
             components: {
                 content:Groups
+            }
+          },
+          {
+            path:'mygroups',
+            components: {
+              content:MyGroups
             }
           },
           {

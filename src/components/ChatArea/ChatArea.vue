@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="relative w-full">
 
      <!-- topbar -->
      <div class="fixed top-0 w-[620px] mx-2 z-40 ">
@@ -109,44 +109,56 @@
      </div>
 
      <!-- send form -->
-          <div class="fixed bottom-0  w-[620px] mb-2 mx-2">
+          <div class="pt-2">
             <!-- form -->
-            <form class="bg-dark-200 flex items-center">   
+            <FormKit type="form" id="message-form" @submit="HandleSendMessage" 
+                :form-class="'bg-dark-200 flex items-center px-2 mx-2'"
+                :actions="false"
+           >
 
-                <!-- message -->
-                <div class="relative flex-1">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-300">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
-                        </svg>
-                    </div>
-                    <input type="search" id="search" class="block w-full p-4 ps-10 text-sm text-gray-300 outline-0  rounded-lg bg-dark-200 placeholder-gray-400" placeholder="Write message.." required autocomplete="off">
-                </div>
+            <FormKit
+                    type="text"
+                    name="message"
+                    placeholder="Write Message"
+                    aria-autocomplete="off"
+                    validation="required"
+                    prefix-icon= '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-300">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 0 1-3-3V4.5a3 3 0 1 1 6 0v8.25a3 3 0 0 1-3 3Z" />
+                            </svg>'
+                    outer-class="w-full"
+                    inner-class="w-full mb-1 overflow-hidden focus:bg-dark-50 bg-dark-200 flex items-center gap-x-2 p-4 ps-2"
+                    input-class="text-gray-100 text-sm bg-inherit outline-0  block w-full "
+                    message-class="hidden"
+                />
 
-                <!-- form icons -->
-                <div class="flex items-center gap-x-2 w-20">
-                        
-                        <div class="flex items-center justify-center w-full">
-                                <label for="dropzone-file" class="flex flex-col items-center justify-center hover:cursor-pointer">
-                                      <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              
+                <FormKit
+                    type="file"
+                    name="photos"
+                    accept=".jpg,.jpeg,.png,.gif"
+                    prefix-icon='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-300">
                                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-                                        </svg>
-                                      </span>
-                                    <input id="dropzone-file" type="file" class="hidden" />
-                                </label>
+                                        </svg>'
+                    fileList-class="hidden"
+                    noFiles-class="hidden"
+                    input-class="hidden"
+                    prefix-icon-class="hover:cursor-pointer"
+                />
+                
+                <FormKit
+                  type="submit"
+                  label=" "
+                  label-class="hidden"
+                  message-class="hidden"
+                  wrapper-class="ml-2 flex items-center justify-center"
+                  prefix-icon='<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-gray-300">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
+                                </svg>'
+                  prefix-icon-class="hover:cursor-pointer hover:text-jeez-100"
+                />
 
-                                <button class="flex items-center p-2 outline-0" type="submit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
-                                    </svg>
+            </FormKit>
 
-                                </button>
-                        </div> 
-
-                    </div>
-            </form>
-            <!-- form -->
           </div>
       <!-- send form -->
   </div>
@@ -158,6 +170,32 @@ import pic from '../../assets/pic.jpg'
 // components
 import ChatLoader from '../Loaders/ChatLoader.vue'
 
+import  { createToaster } from "@meforma/vue-toaster";
+
+import { reset } from '@formkit/core'
+import {SendMessage} from '../../Firebase-helpers.js'
+
+const toaster = createToaster({ 
+    position:"bottom",
+    duration:4000,
+ });
+
+
+const HandleSendMessage =(formData)=>{
+    const {message,photos} = formData
+    
+    SendMessage(message,photos,"mvq1r9rFaAPlOswEPtDukmH4Mwe2","-NpkyrzjQcAqGOx72jSK")
+    .then((sent)=>{
+         if(sent){
+            toaster.success('message sent')
+            reset('message-form')
+         }
+    })
+    .catch((err)=>{
+        toaster.error(err.code)
+        console.log(err)
+    })
+}
 
 </script>
 

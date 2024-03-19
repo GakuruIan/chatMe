@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="" v-for="group in groups" :key="group">
     <div class="animate-pulse flex items-center gap-x-4 my-4 py-1 w-full hover:cursor-pointer" >
         <div class="h-8 w-8 bg-dark-300 rounded-full"></div>
          <div class="">
@@ -13,6 +13,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
+let groups = [1,2,3,4,5,6,7,8]
 
 </script>

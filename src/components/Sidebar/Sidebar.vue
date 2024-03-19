@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-        <div class="absolute bottom-0 md:fixed   md:top-0 w-12 min-h-screen bg-dark-500 border-r-[0.01rem] border-r-[rgba(255,255,255,0.2)]">
+        <div class="absolute left-0 right-0 md:fixed md:top-0  w-12 md:min-h-screen bg-dark-500 border-r-[0.01rem] border-r-[rgba(255,255,255,0.2)]">
            <div class="w-12  px-2">
               <div class="flex flex-col justify-between h-screen py-3">
       

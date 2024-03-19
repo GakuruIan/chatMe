@@ -1,6 +1,6 @@
 <template>
   <div class="flex">
-    <Sidebar/>
+     <Sidebar/>
     <div class="flex-1 relative bg-dark-600 ml-12 h-screen ">
        <div class="flex w-full">
             <!--Chats  -->
@@ -64,7 +64,6 @@ let user = ref(null)
 
 onMounted(async()=>{
   user.value = await store.getters.user
-  console.log(user.value)
 })
 
 watch(() => store.getters.user, (newUser, oldUser) => {
