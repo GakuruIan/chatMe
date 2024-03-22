@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen flex items-center justify-center">
+  <div class="relative h-screen flex items-center justify-center">
     <div class="">
         <header class="mb-4">
             <h1 class="text-4xl md:text-7xl text-center  mb-2">Login</h1>
@@ -61,6 +61,9 @@
 
         <button @click="SignInWithGooglePopup" type="submit" class=" w-full px-4 py-2 bg-red-600 hover:bg-red-500 text-white text-center text-base">Sign in with Google</button>
   </div>
+   <div v-if="loading" class="flex items-center justify-center absolute top-0 right-0 left-0 bottom-0 bg-[rgba(0,0,0,0.7)] backdrop-blur-md backdrop-opacity-5">
+          <h6 class="text-base md text-2xl">Logging In...</h6>
+   </div>
  </div> 
 </template>
 
@@ -71,6 +74,9 @@ import { LoginWithEmailAndPassword,SignInWithGooglePopup } from '../../Firebase-
 import { useRouter } from 'vue-router';
 
 import { useStore } from 'vuex';
+import { onMounted, ref } from 'vue';
+
+let loading = ref(false)
 
 const store = useStore()
 const router = useRouter()
@@ -80,12 +86,22 @@ const toaster = createToaster({
     duration:4000,
  });
 
+onMounted(()=>{
+    const user = store.getters.user
+
+    if(user){
+        router.push('/main')
+    }
+
+})
+
 const submitHandler=(formData)=>{
    
     const {email,password} = formData
-    
+    loading.value = true
     LoginWithEmailAndPassword(email,password)
     .then((user)=>{
+      
          if(user){
             // store user to store
             const {displayName,email,last_seen,photo,activity} = user
@@ -100,11 +116,13 @@ const submitHandler=(formData)=>{
 
             store.dispatch('setUser',UserData)
             store.dispatch('setSuccessLogin',true)
-
+            
+            loading.value= false
             router.push('/main')
          }
     })
     .catch((err)=>{
+        loading.value= false
         toaster.error(err.code)
         console.log(err)
         store.dispatch('setFailedLogin',false)

@@ -11,8 +11,9 @@ import People from './components/People/People.vue'
 import CreateGroup from './components/Forms/CreateGroup.vue'
 import EditProfile from './components/Forms/EditProfile.vue'
 import MyGroups from './components/Groups/Mygroups.vue'
-
-
+import DiscoverGroups from './components/Groups/DiscoverGroups.vue'
+import GroupSearch from './components/SearchResults/GroupSearch.vue'
+import UserSearch from './components/SearchResults/UserSearch.vue'
 
 const routes = [
     {path:'/',component:Login,name:'login'},
@@ -39,6 +40,24 @@ const routes = [
             components: {
               content:MyGroups
             }
+          },
+          {
+           path:'discover-groups',
+           components: {
+             content: DiscoverGroups
+           }
+          },
+          {
+             path:'search-group',
+             components:{
+              content:GroupSearch
+             }
+          },
+          {
+             path:'search-people',
+             components:{
+              content: UserSearch
+             }
           },
           {
             path: 'people',

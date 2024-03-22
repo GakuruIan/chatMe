@@ -1,4 +1,4 @@
-import { Auth,Firebase } from "./Firebase";
+import { Auth } from "./Firebase";
 import { getDatabase,ref,onValue,query,orderByChild,equalTo,orderByKey, limitToFirst, set, push, serverTimestamp, get, update} from "firebase/database";
 import { createUserWithEmailAndPassword, updateProfile ,signInWithPopup,GoogleAuthProvider,signInWithEmailAndPassword,getAuth} from "firebase/auth";
 import { async } from "@firebase/util";
@@ -315,14 +315,115 @@ export const GetUsersGroup =()=>{
 }
 
 
-// create a function to serve as search and works discover groups
-export const DiscoverGroups =(search)=>{
+// Discover groups for user
+export const DiscoverGroups =()=>{
    return new Promise((resolve,reject)=>{
+    const groupsref = ref(database,'groups')
+    let Groups = []
+
+        const queryData = query(groupsref,orderByChild('created_at'),limitToFirst(20))
+
+        onValue(queryData,(snapshot)=>{
+             if(snapshot.exists()){
+                let groupsObject = snapshot.val()
+
+                for(const groupId in groupsObject){
+                    const {created_by} = groupsObject[groupId]
+
+                    if(created_by.id !== Auth.currentUser.uid){
+                      Groups.push({
+                        id:groupId,
+                        ...groupsObject[groupId]
+                      })
+                    }
+                }
+
+                resolve(Groups)
+              }
+        },(err)=>{
+          reject(err)
+        })
+   })
+}
+
+
+export const SearchGroup = (search)=>{
+    return new Promise((resolve,reject)=>{
+      const groupsref = ref(database,'groups')
+      let Groups = []
       if(search){
+        const queryData = query(groupsref,orderByChild('name'),equalTo(search),limitToFirst(20))
+        
+        onValue(queryData,(snapshot)=>{
+            if(snapshot.exists()){
+              let groupsObject = snapshot.val()
 
-      }
-      else{
+              for(const groupId in groupsObject){
+                  Groups.push({
+                      id:groupId,
+                      ...groupsObject[groupId]
+                    })
+              }
 
+              resolve(Groups)
+            }
+            else{
+              resolve([])
+            }
+        },(err)=>{
+           reject(err)
+           console.log(err)
+        })
       }
+    })
+}
+
+export const SearchPeople=(search)=>{
+  return new Promise((resolve,reject)=>{
+     const usersRef = ref(database,'users')
+     let people = []
+
+     const queryData = query(usersRef,orderByChild('displayName'),equalTo(search),limitToFirst(20))
+
+     onValue(queryData,(snapshot)=>{
+           if(snapshot.exists()){
+             let PeopleObject = snapshot.val()
+
+             for (const userId in PeopleObject){
+                if(userId !== Auth.currentUser.uid){
+                  people.push({
+                     id:userId,
+                     ...PeopleObject[userId]
+                  })
+                }
+             }
+
+             resolve(people)
+           }
+           else{
+            resolve([])
+           }
+     },(err)=>{
+        reject(err)
+     })
+  })
+}
+
+export const Logout=()=>{
+   return new Promise((resolve,reject)=>{
+      const userRef = ref(database,`users/${Auth.currentUser.uid}`)
+
+      let updateLastSeen = {
+        last_seen : serverTimestamp() 
+      } 
+
+      update(userRef,updateLastSeen)
+      .then(()=>{
+        resolve(true)
+      })
+      .catch((err)=>{
+        reject(err)
+      })
+
    })
 }

@@ -54,16 +54,22 @@ import People from '../../components/People/People.vue'
 import Groups from '../../components/Groups/Groups.vue'
 import ChatArea from '../../components/ChatArea/ChatArea.vue'
 import Profile from '../../components/Profile/Profile.vue'
+import { useRouter } from 'vue-router';
 
 // no image
 import nophoto from '../../assets/nophoto.jpeg'
 
 const store = useStore()
+const router = useRouter()
 
 let user = ref(null)
 
 onMounted(async()=>{
   user.value = await store.getters.user
+  
+  if(!user.value){
+     router.push('/')
+  }
 })
 
 watch(() => store.getters.user, (newUser, oldUser) => {

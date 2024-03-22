@@ -1,6 +1,6 @@
 <template>
     <!-- search bar -->
-    <Searchbar title="My Groups"/>
+    <Searchbar title="My Groups" link="search-group"/>
    <!-- tabs -->
     <Tabs/>
     
@@ -40,6 +40,11 @@ import { GetUsersGroup } from "../../Firebase-helpers";
 // loader
 import Loader from "../Loaders/MessagesLoader.vue";
 
+const toaster = createToaster({ 
+    position:"bottom",
+    duration:4000,
+ });
+
 let MyGroups = ref([])
 let loading = ref(false)
 
@@ -52,6 +57,7 @@ onMounted(()=>{
     })
     .catch((err)=>{
         console.log(err)
+        toaster.error("An error occurred")
         loading.value = false
     })
     

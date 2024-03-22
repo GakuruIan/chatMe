@@ -7,14 +7,13 @@
                   My groups
                 </router-link>
                 
-                <router-link to="" class="inline-block px-2 py-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300">
+                <router-link to="discover-groups" class="inline-block px-2 py-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300">
                   Discover groups
                 </router-link>
 
                 <router-link to="create-group" class="inline-block px-2 py-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-300 hover:border-gray-300">
                   Create group
                 </router-link>
-
             </ul>
         </div>
         <!-- tabs -->

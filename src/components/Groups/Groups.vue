@@ -2,7 +2,7 @@
   <div class="">
          
         <!-- search -->
-        <Searchbar title="Groups"/>
+        <Searchbar title="Groups" link="search-group"/>
         
 
         <!-- tabs -->
@@ -50,9 +50,6 @@ import { FetchGroups } from '../../Firebase-helpers'
 import  { createToaster } from "@meforma/vue-toaster";
 
 
-
-
-
 const toaster = createToaster({ 
     position:"bottom",
     duration:4000,
@@ -66,7 +63,6 @@ onMounted(()=>{
   FetchGroups().then((groups)=>{
     Groups.value = groups
     loading.value = false
-    console.log(groups)
   })
   .catch((err)=>{
      toaster.error("An Error occurred")

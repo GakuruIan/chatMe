@@ -57,7 +57,7 @@
                       
                   </div>
       
-                  <span class="h-8 w-8  rounded-sm p-1.2 group flex items-center justify-center hover:cursor-pointer hover:bg-[rgba(255,255,255,0.2)]">
+                  <span @click="handleLogout" class="h-8 w-8  rounded-sm p-1.2 group flex items-center justify-center hover:cursor-pointer hover:bg-[rgba(255,255,255,0.2)]">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 group-hover:text-jeez-100">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
                       </svg>
@@ -70,6 +70,44 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
+import { Logout } from "../../Firebase-helpers"
+// toaster
+import  { createToaster } from "@meforma/vue-toaster";
+
+// vuex
+import { useStore } from 'vuex';
+
+// router
+import { useRouter } from 'vue-router';
+
+
+const store = useStore()
+const router = useRouter()
+
+const toaster = createToaster({ 
+    position:"bottom",
+    duration:4000,
+ });
+
+ let user = ref({})
+
+const handleLogout=()=>{
+   Logout().
+   then((res)=>{
+      if(res){
+       user.value = store.getters.user
+       store.dispatch('clearUser',user.value)
+
+       router.push('/')
+      }
+   })
+   .catch((err)=>{
+       toaster.error("An unexpected error occurred")
+       console.log(err)
+   })
+}
 
 </script>
 

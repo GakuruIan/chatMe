@@ -9,7 +9,8 @@ const ls = new SecureLS({ isCompression: false });
 const store = createStore({
    state:{
     user:null,
-    isLoggedIn:false
+    isLoggedIn:false,
+    isLoggedOut:false
    },
 
    mutations:{
@@ -18,11 +19,14 @@ const store = createStore({
      },
 
      clearUser:(state)=>{
-        state.user = null
+        state.user = null,
+        state.isLoggedIn = false,
+        state.isLoggedOut = true
      },
 
      successLogin:(state,isLoggedIn)=>{
         state.isLoggedIn = isLoggedIn
+        state.isLoggedOut = false
      },
 
      failedLogin:(state,isLoggedIn)=>{
@@ -50,7 +54,8 @@ const store = createStore({
 
   getters:{
     user:(state)=> state.user,
-    isLoggedIn:(state)=> state.isLoggedIn
+    isLoggedIn:(state)=> state.isLoggedIn,
+    isLoggedOut:(state)=>state.isLoggedOut
   },
 
   plugins:[
